@@ -37,7 +37,7 @@ export default function RootLayout({
           )}
         >
           <SignedOut>
-            <SignInButton />
+            <SignInButton forceRedirectUrl="/products" />
           </SignedOut>
           <SignedIn>
             <UserButton />
