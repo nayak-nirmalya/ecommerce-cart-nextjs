@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Dialog,
   DialogTrigger,
@@ -9,25 +11,22 @@ import {
   DialogDescription,
   DialogContainer,
 } from "@/components/core/dialog";
-import { PlusIcon } from "lucide-react";
+import { useTransition } from "react";
+import { LoaderIcon } from "lucide-react";
 
-import { Button } from "./ui/button";
+import { Product } from "@/types";
+import { addToCart } from "@/actions/cart";
+import { Button } from "@/components/ui/button";
 
-interface ProductCardProps {
-  id: number;
-  image: string;
-  name: string;
-  description: string;
-  price: string;
-}
+export function ProductCard({ id, name, image, description, price }: Product) {
+  const [isPending, startTransition] = useTransition();
 
-export function ProductCard({
-  id,
-  name,
-  image,
-  description,
-  price,
-}: ProductCardProps) {
+  const handleAddToCart = () => {
+    startTransition(async () => {
+      await addToCart(id);
+    });
+  };
+
   return (
     <Dialog
       transition={{
@@ -56,13 +55,6 @@ export function ProductCard({
               ₹{price}
             </DialogSubtitle>
           </div>
-          <button
-            type="button"
-            className="relative ml-1 flex h-6 w-6 shrink-0 scale-100 select-none appearance-none items-center justify-center rounded-lg border border-zinc-950/10 text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98] dark:border-zinc-50/10 dark:bg-zinc-900 dark:text-zinc-500 dark:hover:bg-zinc-800 dark:hover:text-zinc-50 dark:focus-visible:ring-zinc-500"
-            aria-label="Add to cart"
-          >
-            <PlusIcon size={12} />
-          </button>
         </div>
       </DialogTrigger>
       <DialogContainer>
@@ -77,7 +69,18 @@ export function ProductCard({
             alt={description}
             className="h-full w-full"
           />
-          <div className="p-4">
+          <div className="p-4 relative">
+            <Button
+              disabled={isPending}
+              onClick={handleAddToCart}
+              aria-label="Add to cart"
+              className="absolute -top-14 right-6"
+            >
+              {isPending ? "Adding..." : "Add to Cart"}
+              {isPending && (
+                <LoaderIcon className="ml-2 h-4 w-4 animate-spin" />
+              )}
+            </Button>
             <DialogTitle className="text-xl text-zinc-950 dark:text-zinc-50">
               {name}
             </DialogTitle>
@@ -93,7 +96,6 @@ export function ProductCard({
               }}
             >
               <p className="text-zinc-500">{description}</p>
-              <Button className="mt-1">Add to Cart</Button>
             </DialogDescription>
           </div>
           <DialogClose className="text-zinc-50" />

@@ -10,7 +10,9 @@ export function Navbar() {
           Profile
         </Link>
         <div className="flex gap-x-5 items-center">
-          <ShoppingCart />
+          <Link href="/cart">
+            <ShoppingCart />
+          </Link>
           <UserButton />
         </div>
       </div>
