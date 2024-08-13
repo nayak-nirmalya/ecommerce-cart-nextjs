@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Classic High-Waisted Athletic Shorts",
+    "image": "https://i.imgur.com/NLn4e7S.jpeg",
+    "description": "Stay comfortable and stylish with our Classic High-Waisted Athletic Shorts. Designed for optimal movement and versatility, these shorts are a must-have for your workout wardrobe. Featuring a figure-flattering high waist, breathable fabric, and a secure fit that ensures they stay in place during any activity, these shorts are perfect for the gym, running, or even just casual wear.",
+    "price": "430"
+  },
+  {
+    "id": 2,
+    "name": "Classic White Tee - Timeless Style and Comfort",
+    "image": "https://i.imgur.com/SZPDSgy.jpeg",
+    "description": "Elevate your everyday wardrobe with our Classic White Tee. Crafted from premium soft cotton material, this versatile t-shirt combines comfort with durability, perfect for daily wear. Featuring a relaxed, unisex fit that flatters every body type, it's a staple piece for any casual ensemble. Easy to care for and machine washable, this white tee retains its shape and softness wash after wash. Pair it with your favorite jeans or layer it under a jacket for a smart look.",
+    "price": "734"
+  },
+  {
+    "id": 3,
+    "name": "Classic Black T-Shirt",
+    "image": "https://i.imgur.com/mZ4rUjj.jpeg",
+    "description": "Elevate your everyday style with our Classic Black T-Shirt. This staple piece is crafted from soft, breathable cotton for all-day comfort. Its versatile design features a classic crew neck and short sleeves, making it perfect for layering or wearing on its own. Durable and easy to care for, it's sure to become a favorite in your wardrobe.",
+    "price": "499"
+  },
+  {
+    "id": 4,
+    "name": "Sleek White & Orange Wireless Gaming Controller",
+    "image": "https://i.imgur.com/Ro5z6Tn.jpeg",
+    "description": "Elevate your gaming experience with this state-of-the-art wireless controller, featuring a crisp white base with vibrant orange accents. Designed for precision play, the ergonomic shape and responsive buttons provide maximum comfort and control for endless hours of gameplay. Compatible with multiple gaming platforms, this controller is a must-have for any serious gamer looking to enhance their setup.",
+    "price": "2599"
+  },
+  {
+    "id": 5,
+    "name": "Sleek Wireless Headphone & Inked Earbud Set",
+    "image": "https://i.imgur.com/yVeIeDa.jpeg",
+    "description": "Experience the fusion of style and sound with this sophisticated audio set featuring a pair of sleek, white wireless headphones offering crystal-clear sound quality and over-ear comfort. The set also includes a set of durable earbuds, perfect for an on-the-go lifestyle. Elevate your music enjoyment with this versatile duo, designed to cater to all your listening needs.",
+    "price": "1499"
+  },
+  {
+    "id": 6,
+    "name": "Sleek Comfort-Fit Over-Ear Headphones",
+    "image": "https://i.imgur.com/SolkFEB.jpeg",
+    "description": "Experience superior sound quality with our Sleek Comfort-Fit Over-Ear Headphones, designed for prolonged use with cushioned ear cups and an adjustable, padded headband. Ideal for immersive listening, whether you're at home, in the office, or on the move. Their durable construction and timeless design provide both aesthetically pleasing looks and long-lasting performance.",
+    "price": "1999"
+  },
+  {
+    "id": 7,
+    "name": "Efficient 2-Slice Toaster",
+    "image": "https://i.imgur.com/keVCVIa.jpeg",
+    "description": "Enhance your morning routine with our sleek 2-slice toaster, featuring adjustable browning controls and a removable crumb tray for easy cleaning. This compact and stylish appliance is perfect for any kitchen, ensuring your toast is always golden brown and delicious.",
+    "price": "5995"
+  },
+  {
+    "id": 8,
+    "name": "Sleek Wireless Computer Mouse",
+    "image": "https://i.imgur.com/WJFOGIC.jpeg",
+    "description": "Experience smooth and precise navigation with this modern wireless mouse, featuring a glossy finish and a comfortable ergonomic design. Its responsive tracking and easy-to-use interface make it the perfect accessory for any desktop or laptop setup. The stylish blue hue adds a splash of color to your workspace, while its compact size ensures it fits neatly in your bag for on-the-go productivity.",
+    "price": "1099"
+  },
+  {
+    "id": 9,
+    "name": "Sleek Smartwatch with Vibrant Display",
+    "image": "https://i.imgur.com/1ttYWaI.jpeg",
+    "description": "Experience modern timekeeping with our high-tech smartwatch, featuring a vivid touch screen display, customizable watch faces, and a comfortable blue silicone strap. This smartwatch keeps you connected with notifications and fitness tracking while showcasing exceptional style and versatility.",
+    "price": "4499"
+  },
+  {
+    "id": 10,
+    "name": "Sleek Modern Leather Sofa",
+    "image": "https://i.imgur.com/Qphac99.jpeg",
+    "description": "Enhance the elegance of your living space with our Sleek Modern Leather Sofa. Designed with a minimalist aesthetic, it features clean lines and a luxurious leather finish. The robust metal legs provide stability and support, while the plush cushions ensure comfort. Perfect for contemporary homes or office waiting areas, this sofa is a statement piece that combines style with practicality.",
+    "price": "29999"
+  }
+]
