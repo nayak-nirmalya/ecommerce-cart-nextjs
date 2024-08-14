@@ -1,6 +1,6 @@
 "use server";
 
-import { currentUser } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 import { and, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
@@ -8,11 +8,10 @@ import { cartItem } from "@/db/schema";
 import { db } from "@/db/drizzle";
 
 export async function addToCart(productId: number) {
-  const signedInUser = await currentUser();
-  if (!signedInUser) {
+  const { userId } = auth();
+  if (!userId) {
     throw new Error("Unauthorized!");
   }
-  const userId = signedInUser.id;
 
   const [cart] = await db
     .select()
@@ -36,5 +35,5 @@ export async function addToCart(productId: number) {
       );
   }
 
-  revalidatePath("/products");
+  revalidatePath("/(protected)", "layout");
 }

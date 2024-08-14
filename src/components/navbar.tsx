@@ -1,6 +1,9 @@
+import { Suspense } from "react";
 import Link from "next/link";
-import { UserButton } from "@clerk/nextjs";
-import { ShoppingCart } from "lucide-react";
+import { UserButton, ClerkLoading, ClerkLoaded } from "@clerk/nextjs";
+import { Loader2 } from "lucide-react";
+
+import { CartIcon } from "@/components/cart-icon";
 
 export function Navbar() {
   return (
@@ -10,10 +13,15 @@ export function Navbar() {
           Profile
         </Link>
         <div className="flex gap-x-5 items-center">
-          <Link href="/cart">
-            <ShoppingCart />
-          </Link>
-          <UserButton />
+          <Suspense fallback={<Loader2 className="animate-spin" />}>
+            <CartIcon />
+          </Suspense>
+          <ClerkLoading>
+            <Loader2 className="animate-spin" />
+          </ClerkLoading>
+          <ClerkLoaded>
+            <UserButton />
+          </ClerkLoaded>
         </div>
       </div>
     </nav>
