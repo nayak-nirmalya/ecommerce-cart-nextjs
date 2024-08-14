@@ -16,11 +16,13 @@ export function CartItem({
   name,
   price,
   quantity,
+  totalPriceByProduct,
 }: {
   id: number;
   name: string;
   price: string;
   quantity: number;
+  totalPriceByProduct: number;
   image: string;
 }) {
   return (
@@ -39,7 +41,7 @@ export function CartItem({
         <AddToCart id={id} />
       </div>
       <p className="text-sm font-bold items-center justify-center text-gray-500">
-        ₹{parseInt(price) * quantity}
+        ₹{totalPriceByProduct}
       </p>
     </div>
   );

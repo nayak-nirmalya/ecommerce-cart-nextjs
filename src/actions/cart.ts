@@ -49,6 +49,10 @@ export async function removeFromCart(productId: number) {
     .from(cartItem)
     .where(and(eq(cartItem.userId, userId), eq(cartItem.productId, productId)));
 
+  if (!cart || cart.quantity <= 0) {
+    throw new Error("Item not found in cart!");
+  }
+
   if (cart.quantity === 1) {
     await db
       .delete(cartItem)
