@@ -13,6 +13,7 @@ import {
 } from "@/components/core/dialog";
 import { useTransition } from "react";
 import { LoaderIcon } from "lucide-react";
+import { toast } from "sonner";
 
 import { Product } from "@/types";
 import { addToCart } from "@/actions/cart";
@@ -24,6 +25,7 @@ export function ProductCard({ id, name, image, description, price }: Product) {
   const handleAddToCart = () => {
     startTransition(async () => {
       await addToCart(id);
+      toast("Item added to cart.");
     });
   };
 

@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
           )}
         >
           {children}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
