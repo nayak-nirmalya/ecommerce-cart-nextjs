@@ -14,7 +14,7 @@ export async function addToCart(productId: number) {
   }
 
   const [cart] = await db
-    .select()
+    .select({ quantity: cartItem.quantity })
     .from(cartItem)
     .where(and(eq(cartItem.userId, userId), eq(cartItem.productId, productId)));
 
@@ -29,6 +29,37 @@ export async function addToCart(productId: number) {
       .update(cartItem)
       .set({
         quantity: cart.quantity + 1,
+      })
+      .where(
+        and(eq(cartItem.userId, userId), eq(cartItem.productId, productId))
+      );
+  }
+
+  revalidatePath("/(protected)", "layout");
+}
+
+export async function removeFromCart(productId: number) {
+  const { userId } = auth();
+  if (!userId) {
+    throw new Error("Unauthorized!");
+  }
+
+  const [cart] = await db
+    .select({ quantity: cartItem.quantity })
+    .from(cartItem)
+    .where(and(eq(cartItem.userId, userId), eq(cartItem.productId, productId)));
+
+  if (cart.quantity === 1) {
+    await db
+      .delete(cartItem)
+      .where(
+        and(eq(cartItem.userId, userId), eq(cartItem.productId, productId))
+      );
+  } else {
+    await db
+      .update(cartItem)
+      .set({
+        quantity: cart.quantity - 1,
       })
       .where(
         and(eq(cartItem.userId, userId), eq(cartItem.productId, productId))
