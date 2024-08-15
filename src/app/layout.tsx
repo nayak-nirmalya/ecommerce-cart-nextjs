@@ -12,7 +12,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Profile",
+  title: "Profile Shop",
   description:
     "Profile.fyi is the next-gen professional social network aimed at enabling people to build their ultimate career profile by showcasing things that matter.",
 };
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider afterSignOutUrl="/">
       <html lang="en">
         <body
           className={cn(
