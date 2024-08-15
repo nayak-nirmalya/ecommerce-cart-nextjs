@@ -6,13 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { DISCOUNT, GST, HANDLING_CHARGE, SHIPPING_COST } from "@/constants";
 
-export function Summary({ itemsTotal }: { itemsTotal: string }) {
-  const total =
-    Number(itemsTotal) +
-    Number(SHIPPING_COST) +
-    Number(HANDLING_CHARGE) +
-    Number(GST) -
-    Number(DISCOUNT);
+export function Summary({ itemsTotal }: { itemsTotal: number }) {
+  const total = itemsTotal + SHIPPING_COST + HANDLING_CHARGE + GST - DISCOUNT;
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -23,25 +18,25 @@ export function Summary({ itemsTotal }: { itemsTotal: string }) {
         <Separator className="w-4/5 my-2" />
         <div className="flex w-full px-5 flex-row items-center justify-between">
           <p>Items total:</p>
-          <p>₹{itemsTotal}</p>
+          <p>₹{itemsTotal.toFixed(2)}</p>
         </div>
         <div className="flex w-full px-5 flex-row items-center justify-between">
           <p>Shipping cost:</p>
-          <p>+ ₹{SHIPPING_COST}</p>
+          <p>+ ₹{SHIPPING_COST.toFixed(2)}</p>
         </div>
         <div className="flex w-full px-5 flex-row items-center justify-between">
           <p>Handling charge:</p>
-          <p>+ ₹{HANDLING_CHARGE}</p>
+          <p>+ ₹{HANDLING_CHARGE.toFixed(2)}</p>
         </div>
         <Separator className="w-4/5" />
         <div className="flex w-full px-5 flex-row items-center justify-between">
           <p>GST:</p>
-          <p>+ ₹{GST}</p>
+          <p>+ ₹{GST.toFixed(2)}</p>
         </div>
         <Separator className="w-4/5" />
         <div className="flex w-full px-5 flex-row items-center justify-between">
           <p>Discount:</p>
-          <p>- ₹{DISCOUNT}</p>
+          <p>- ₹{DISCOUNT.toFixed(2)}</p>
         </div>
         <Separator className="w-4/5" />
         <div className="flex font-bold w-full px-5 flex-row items-center justify-between">

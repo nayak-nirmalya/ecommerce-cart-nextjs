@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
 import { eq, sql, sum } from "drizzle-orm";
 
@@ -5,6 +6,8 @@ import { db } from "@/db/drizzle";
 import { cartItem, product } from "@/db/schema";
 import { CartItem } from "@/components/cart-item";
 import { Summary } from "@/components/summary";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 
 export default async function CartPage() {
   const { userId } = auth();
@@ -52,10 +55,25 @@ export default async function CartPage() {
               />
             )
           )}
-          <Summary itemsTotal={totalSum.sumTotalPrice!} />
+          <Summary itemsTotal={Number(totalSum.sumTotalPrice!)} />
         </>
       ) : (
-        "Empty"
+        <div className="flex flex-col items-center justify-center">
+          <p className="font-semibold text-zinc-500">Nothing in your cart!</p>
+          <p className="text-zinc-500">
+            Go to{" "}
+            <Link
+              className={cn(
+                buttonVariants({ variant: "link" }),
+                "underline p-0"
+              )}
+              href="/products"
+            >
+              products
+            </Link>{" "}
+            and add some to your cart.
+          </p>
+        </div>
       )}
     </>
   );
