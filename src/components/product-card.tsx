@@ -18,6 +18,7 @@ import { toast } from "sonner";
 import { Product } from "@/types";
 import { addToCart } from "@/actions/cart";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function ProductCard({ id, name, image, description, price }: Product) {
   const [isPending, startTransition] = useTransition();
@@ -104,5 +105,19 @@ export function ProductCard({ id, name, image, description, price }: Product) {
         </DialogContent>
       </DialogContainer>
     </Dialog>
+  );
+}
+
+export function ProductCardSkeleton() {
+  return (
+    <div className="rounded-lg flex drop-shadow-lg max-w-[270px] flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900">
+      <Skeleton className="h-48 w-full rounded-b-none" />
+      <div className="flex flex-grow flex-row items-end justify-between p-2">
+        <div className="flex flex-col gap-2">
+          <Skeleton className="w-[250px] h-6" />
+          <Skeleton className="w-[120px] h-4" />
+        </div>
+      </div>
+    </div>
   );
 }
