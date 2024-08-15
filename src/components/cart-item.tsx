@@ -8,6 +8,7 @@ import { LoaderIcon } from "lucide-react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { addToCart, removeFromCart } from "@/actions/cart";
 
 export function CartItem({
@@ -105,5 +106,23 @@ function RemoveFromCart({ id }: { id: number }) {
         <Minus className="h-3 w-3 lg:h-4 lg:w-4" />
       )}
     </Button>
+  );
+}
+
+export function CartItemSkeleton() {
+  return (
+    <div className="flex flex-row border-2 rounded-lg p-2 md:p-4 lg:p-6 items-center justify-evenly gap-2">
+      <Skeleton className="w-20 h-20" />
+      <div className="flex flex-col items-center justify-center w-44 lg:w-80 md:w-80 gap-2">
+        <Skeleton className="w-44 h-8 lg:w-64" />
+        <Skeleton className="w-16 h-5 lg:w-28 lg:h-6" />
+      </div>
+      <div className="flex flex-col-reverse md:flex-row lg:flex-row items-center justify-center gap-1">
+        <Skeleton className="rounded-full h-6 w-6 lg:h-8 lg:w-8" />
+        <Skeleton className="rounded-full h-6 w-6 lg:h-8 lg:w-8" />
+        <Skeleton className="rounded-full h-6 w-6 lg:h-8 lg:w-8" />
+      </div>
+      <Skeleton className="w-16 h-5 lg:w-28 lg:h-6" />
+    </div>
   );
 }

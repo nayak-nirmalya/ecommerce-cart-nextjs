@@ -3,10 +3,6 @@ import { db } from "@/db/drizzle";
 import { product } from "@/db/schema";
 
 export default async function ProductsPage() {
-  // await new Promise((resolve) => {
-  //   setTimeout(resolve, 40000);
-  // });
-
   const products = await db.select().from(product);
 
   return (

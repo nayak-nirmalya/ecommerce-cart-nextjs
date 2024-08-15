@@ -36,32 +36,27 @@ export default async function CartPage() {
   const [cartItems, [totalSum]] = await Promise.all([cartItemsQuery, sumQuery]);
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h1 className="text-xl md:text-3xl lg:text-4xl font-bold mt-2">
-        Shopping Cart
-      </h1>
-      <div className="flex flex-col my-3 lg:my-5 mx-1 max-w-screen-2xl md:w-4/5 lg:w-3/5 gap-2 md:gap-4 lg:gap-6">
-        {cartItems.length >= 1 ? (
-          <>
-            {cartItems.map(
-              ({ id, name, price, quantity, image, totalPriceByProduct }) => (
-                <CartItem
-                  key={id}
-                  id={id}
-                  name={name}
-                  price={price}
-                  quantity={quantity}
-                  image={image}
-                  totalPriceByProduct={totalPriceByProduct}
-                />
-              )
-            )}
-            <Summary itemsTotal={totalSum.sumTotalPrice!} />
-          </>
-        ) : (
-          "Empty"
-        )}
-      </div>
-    </div>
+    <>
+      {cartItems.length >= 1 ? (
+        <>
+          {cartItems.map(
+            ({ id, name, price, quantity, image, totalPriceByProduct }) => (
+              <CartItem
+                key={id}
+                id={id}
+                name={name}
+                price={price}
+                quantity={quantity}
+                image={image}
+                totalPriceByProduct={totalPriceByProduct}
+              />
+            )
+          )}
+          <Summary itemsTotal={totalSum.sumTotalPrice!} />
+        </>
+      ) : (
+        "Empty"
+      )}
+    </>
   );
 }
