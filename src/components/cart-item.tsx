@@ -34,13 +34,20 @@ export function CartItem({
         alt={name}
         className="w-20 h-20 object-cover rounded"
       />
-      <h2 className="text-center text-lg font-bold w-80">{name}</h2>
-      <div className="flex flex-row items-center justify-center">
+      <div className="flex flex-col text-center w-44 lg:w-80 md:w-80 gap-1">
+        <h2 className="line-clamp-2 text-sm lg:text-lg md:text-lg font-bold flex-1">
+          {name}
+        </h2>
+        <p className="text-sm text-gray-500">₹{price}</p>
+      </div>
+      <div className="flex flex-col-reverse md:flex-row lg:flex-row items-center justify-center">
         <RemoveFromCart id={id} />
-        <p className="text-xl m-2.5 font-extrabold">{quantity}</p>
+        <p className="text-base lg:text-xl m-1.5 lg:m-2.5 font-semibold md:font-bold lg:font-extrabold">
+          {quantity}
+        </p>
         <AddToCart id={id} />
       </div>
-      <p className="text-sm font-bold items-center justify-center text-gray-500">
+      <p className="text-sm font-semibold text-center w-[80px] lg:font-bold items-center justify-center text-gray-500">
         ₹{totalPriceByProduct}
       </p>
     </div>
@@ -62,10 +69,14 @@ function AddToCart({ id }: { id: number }) {
       disabled={isPending}
       onClick={handleAddToCart}
       variant="default"
-      className="rounded-full"
+      className="rounded-full h-6 w-6 lg:h-8 lg:w-8"
       size="icon"
     >
-      {isPending ? <LoaderIcon className="animate-spin" /> : <Plus />}
+      {isPending ? (
+        <LoaderIcon className="animate-spin h-3 w-3 lg:h-4 lg:w-4" />
+      ) : (
+        <Plus className="h-3 w-3 lg:h-4 lg:w-4" />
+      )}
     </Button>
   );
 }
@@ -85,10 +96,14 @@ function RemoveFromCart({ id }: { id: number }) {
       disabled={isPending}
       onClick={handleRemoveFromCart}
       variant="destructive"
-      className="rounded-full"
+      className="rounded-full h-6 w-6 lg:h-8 lg:w-8"
       size="icon"
     >
-      {isPending ? <LoaderIcon className="animate-spin" /> : <Minus />}
+      {isPending ? (
+        <LoaderIcon className="animate-spin h-3 w-3 lg:h-4 lg:w-4" />
+      ) : (
+        <Minus className="h-3 w-3 lg:h-4 lg:w-4" />
+      )}
     </Button>
   );
 }

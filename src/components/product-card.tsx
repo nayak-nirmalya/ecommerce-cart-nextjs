@@ -114,7 +114,7 @@ export function ProductCardSkeleton() {
       <Skeleton className="h-48 w-full rounded-b-none" />
       <div className="flex flex-grow flex-row items-end justify-between p-2">
         <div className="flex flex-col gap-2">
-          <Skeleton className="w-[250px] h-6" />
+          <Skeleton className="w-[180px] md:w-[198px] lg:w-[250px] h-6" />
           <Skeleton className="w-[120px] h-4" />
         </div>
       </div>

@@ -4,6 +4,7 @@ import { eq, sql, sum } from "drizzle-orm";
 import { db } from "@/db/drizzle";
 import { cartItem, product } from "@/db/schema";
 import { CartItem } from "@/components/cart-item";
+import { Summary } from "@/components/summary";
 
 export default async function CartPage() {
   const { userId } = auth();
@@ -34,13 +35,12 @@ export default async function CartPage() {
 
   const [cartItems, [totalSum]] = await Promise.all([cartItemsQuery, sumQuery]);
 
-  console.log(cartItems);
-  console.log(totalSum);
-
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-bold mt-2">Shopping Cart</h1>
-      <div className="flex flex-col my-6 mx-1 max-w-screen-2xl md:w-4/5 lg:w-3/5 gap-2 md:gap-4 lg:gap-6">
+      <h1 className="text-xl md:text-3xl lg:text-4xl font-bold mt-2">
+        Shopping Cart
+      </h1>
+      <div className="flex flex-col my-3 lg:my-5 mx-1 max-w-screen-2xl md:w-4/5 lg:w-3/5 gap-2 md:gap-4 lg:gap-6">
         {cartItems.length >= 1 ? (
           <>
             {cartItems.map(
@@ -56,7 +56,7 @@ export default async function CartPage() {
                 />
               )
             )}
-            <p>{totalSum.sumTotalPrice}</p>
+            <Summary itemsTotal={totalSum.sumTotalPrice!} />
           </>
         ) : (
           "Empty"
