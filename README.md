@@ -14,7 +14,9 @@ Built with the Next.js 14 App Router, PostgreSQL, TypeScript, TailwindCSS, Clerk
 - 🩻 Loading Skeletons & Spinner with Toast for great UX
 - 📀 Site Metadata with OG:Image for SEO
 - ♨️ Data mutation with Server Actions
+- 💵 Format to Local INR Indian Rupee
 - 🦋 Properly formatted codebase with Prettier & eslint
+- 🛒 Add/Remove product by one, delete item
 - ⌨️ 100% written in TypeScript
 
 ## Getting Started

@@ -72,3 +72,25 @@ export async function removeFromCart(productId: number) {
 
   revalidatePath("/(protected)", "layout");
 }
+
+export async function deleteProductFromCart(productId: number) {
+  const { userId } = auth();
+  if (!userId) {
+    throw new Error("Unauthorized!");
+  }
+
+  const [cart] = await db
+    .select({ quantity: cartItem.quantity })
+    .from(cartItem)
+    .where(and(eq(cartItem.userId, userId), eq(cartItem.productId, productId)));
+
+  if (!cart || cart.quantity <= 0) {
+    throw new Error("Item not found in cart!");
+  }
+
+  await db
+    .delete(cartItem)
+    .where(and(eq(cartItem.userId, userId), eq(cartItem.productId, productId)));
+
+  revalidatePath("/(protected)", "layout");
+}
