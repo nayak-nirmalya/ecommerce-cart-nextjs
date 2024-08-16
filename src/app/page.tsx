@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div className="flex min-h-screen flex-col items-center justify-center gap-14 -mt-16">
       <SignedOut>
         <SignInButton mode="modal" forceRedirectUrl="/products">
           <Button>Sign In to View Products</Button>
@@ -17,7 +17,7 @@ export default function Home() {
           Browse Products
         </Link>
       </SignedIn>
-      <div className="flex flex-col items-center justify-center gap-4 text-zinc-500">
+      <div className="flex flex-col items-center justify-center text-zinc-500">
         <p>
           Made with ❤️ by{" "}
           <a
