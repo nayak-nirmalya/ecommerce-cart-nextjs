@@ -12,6 +12,9 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`
+  ),
   title: {
     template: "%s | Profile Shop",
     default: "Profile Shop",
