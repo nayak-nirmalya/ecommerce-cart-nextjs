@@ -25,6 +25,7 @@ export default async function CartPage() {
       totalPriceByProduct: sql<number>`${product.price} * ${cartItem.quantity}`,
     })
     .from(cartItem)
+    .orderBy(product.id)
     .where(eq(cartItem.userId, userId))
     .innerJoin(product, eq(cartItem.productId, product.id));
 

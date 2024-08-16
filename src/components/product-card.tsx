@@ -19,6 +19,7 @@ import { Product } from "@/types";
 import { addToCart } from "@/actions/cart";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { formatPriceToINR } from "@/lib/utils";
 
 export function ProductCard({ id, name, image, description, price }: Product) {
   const [isPending, startTransition] = useTransition();
@@ -55,7 +56,7 @@ export function ProductCard({ id, name, image, description, price }: Product) {
               {name}
             </DialogTitle>
             <DialogSubtitle className="text-zinc-700 dark:text-zinc-400 line-clamp-1">
-              ₹{price}
+              {formatPriceToINR(Number(price))}
             </DialogSubtitle>
           </div>
         </div>
@@ -88,7 +89,7 @@ export function ProductCard({ id, name, image, description, price }: Product) {
               {name}
             </DialogTitle>
             <DialogSubtitle className="text-zinc-700 font-semibold dark:text-zinc-400">
-              ₹{price}
+              {formatPriceToINR(Number(price))}
             </DialogSubtitle>
             <DialogDescription
               disableLayoutAnimation

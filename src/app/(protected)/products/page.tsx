@@ -3,7 +3,7 @@ import { db } from "@/db/drizzle";
 import { product } from "@/db/schema";
 
 export default async function ProductsPage() {
-  const products = await db.select().from(product);
+  const products = await db.select().from(product).orderBy(product.id);
 
   return (
     <>

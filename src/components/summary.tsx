@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { DISCOUNT, GST, HANDLING_CHARGE, SHIPPING_COST } from "@/constants";
+import { formatPriceToINR } from "@/lib/utils";
 
 export function Summary({ itemsTotal }: { itemsTotal: number }) {
   const total = itemsTotal + SHIPPING_COST + HANDLING_CHARGE + GST - DISCOUNT;
@@ -18,30 +19,30 @@ export function Summary({ itemsTotal }: { itemsTotal: number }) {
         <Separator className="w-4/5 my-2" />
         <div className="flex w-full px-5 flex-row items-center justify-between">
           <p>Items total:</p>
-          <p>₹{itemsTotal.toFixed(2)}</p>
+          <p>{formatPriceToINR(itemsTotal)}</p>
         </div>
         <div className="flex w-full px-5 flex-row items-center justify-between">
           <p>Shipping cost:</p>
-          <p>+ ₹{SHIPPING_COST.toFixed(2)}</p>
+          <p>+ {formatPriceToINR(SHIPPING_COST)}</p>
         </div>
         <div className="flex w-full px-5 flex-row items-center justify-between">
           <p>Handling charge:</p>
-          <p>+ ₹{HANDLING_CHARGE.toFixed(2)}</p>
+          <p>+ {formatPriceToINR(HANDLING_CHARGE)}</p>
         </div>
         <Separator className="w-4/5" />
         <div className="flex w-full px-5 flex-row items-center justify-between">
           <p>GST:</p>
-          <p>+ ₹{GST.toFixed(2)}</p>
+          <p>+ {formatPriceToINR(GST)}</p>
         </div>
         <Separator className="w-4/5" />
         <div className="flex w-full px-5 flex-row items-center justify-between">
           <p>Discount:</p>
-          <p>- ₹{DISCOUNT.toFixed(2)}</p>
+          <p>- {formatPriceToINR(DISCOUNT)}</p>
         </div>
         <Separator className="w-4/5" />
         <div className="flex font-bold w-full px-5 flex-row items-center justify-between">
           <p>Order total:</p>
-          <p>₹{total.toFixed(2)}</p>
+          <p>{formatPriceToINR(total)}</p>
         </div>
         <Button onClick={() => toast("Order Placed!")} className="w-4/6 m-2">
           Checkout

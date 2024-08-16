@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { addToCart, removeFromCart } from "@/actions/cart";
+import { formatPriceToINR } from "@/lib/utils";
 
 export function CartItem({
   id,
@@ -39,7 +40,9 @@ export function CartItem({
         <h2 className="line-clamp-2 text-sm lg:text-lg md:text-lg font-bold flex-1">
           {name}
         </h2>
-        <p className="text-sm text-gray-500">₹{price}</p>
+        <p className="text-sm text-gray-500">
+          {formatPriceToINR(Number(price))}
+        </p>
       </div>
       <div className="flex flex-col-reverse md:flex-row lg:flex-row items-center justify-center">
         <RemoveFromCart id={id} />
@@ -49,7 +52,7 @@ export function CartItem({
         <AddToCart id={id} />
       </div>
       <p className="text-sm font-semibold text-center w-[80px] lg:font-bold items-center justify-center text-gray-500">
-        ₹{totalPriceByProduct}
+        {formatPriceToINR(Number(totalPriceByProduct))}
       </p>
     </div>
   );
