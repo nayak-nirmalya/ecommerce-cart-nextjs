@@ -1,7 +1,7 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Authentication | Profile",
+  title: "Authentication",
 };
 
 export default function AuthLayout({

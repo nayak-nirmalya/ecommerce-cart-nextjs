@@ -12,9 +12,26 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Profile Shop",
+  title: {
+    template: "%s | Profile Shop",
+    default: "Profile Shop",
+  },
   description:
     "Profile.fyi is the next-gen professional social network aimed at enabling people to build their ultimate career profile by showcasing things that matter.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`,
+    title: "Profile Shop",
+    countryName: "India",
+    siteName: "Profile Shop",
+    description:
+      "Profile.fyi is the next-gen professional social network aimed at enabling people to build their ultimate career profile by showcasing things that matter.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@nirmalya_nayak",
+  },
 };
 
 export default function RootLayout({

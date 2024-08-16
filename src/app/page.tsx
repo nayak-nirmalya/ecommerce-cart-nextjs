@@ -9,14 +9,27 @@ export default function Home() {
     <div className="flex min-h-screen flex-col items-center justify-between p-24">
       <SignedOut>
         <SignInButton mode="modal" forceRedirectUrl="/products">
-          <Button>Sign In</Button>
+          <Button>Sign In to View Products</Button>
         </SignInButton>
       </SignedOut>
       <SignedIn>
         <Link className={cn(buttonVariants({ size: "lg" }))} href="/products">
-          Go to Products
+          Browse Products
         </Link>
       </SignedIn>
+      <div className="flex flex-col items-center justify-center gap-4 text-zinc-500">
+        <p>
+          Made with ❤️ by{" "}
+          <a
+            className="underline text-zinc-600"
+            href="https://www.nirmalya.xyz/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Nirmalya
+          </a>
+        </p>
+      </div>
     </div>
   );
 }
