@@ -30,7 +30,7 @@ export function CartItem({
   image: string;
 }) {
   return (
-    <div className="flex flex-row border-2 rounded-lg p-2 md:p-4 lg:p-6 items-center justify-evenly gap-2">
+    <div className="flex max-w-screen-lg flex-row border-2 rounded-lg p-2 md:p-4 lg:p-6 items-center justify-evenly gap-2">
       <Image
         width={200}
         height={200}
@@ -38,7 +38,7 @@ export function CartItem({
         alt={name}
         className="w-20 h-20 object-cover rounded"
       />
-      <div className="flex flex-col text-center w-44 lg:w-80 md:w-80 gap-1">
+      <div className="flex flex-col text-center w-40 lg:w-96 md:w-80 gap-1">
         <h2 className="line-clamp-2 text-sm lg:text-lg md:text-lg font-bold flex-1">
           {name}
         </h2>
@@ -146,10 +146,10 @@ function DeleteFromCart({ id }: { id: number }) {
 
 export function CartItemSkeleton() {
   return (
-    <div className="flex flex-row border-2 rounded-lg p-2 md:p-4 lg:p-6 items-center justify-evenly gap-2">
+    <div className="flex max-w-screen-lg flex-row border-2 rounded-lg p-2 md:p-4 lg:p-6 items-center justify-evenly gap-2">
       <Skeleton className="w-20 h-20" />
-      <div className="flex flex-col items-center justify-center w-44 lg:w-80 md:w-80 gap-2">
-        <Skeleton className="w-44 h-8 lg:w-64" />
+      <div className="flex flex-col items-center justify-center w-40 lg:w-96 md:w-80 gap-2">
+        <Skeleton className="w-36 h-7 lg:h-8 lg:w-64" />
         <Skeleton className="w-16 h-5 lg:w-28 lg:h-6" />
       </div>
       <div className="flex flex-row gap-2 justify-center items-center">

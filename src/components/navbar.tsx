@@ -12,8 +12,8 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 px-2 flex items-center justify-center border-b-2 border-dotted border-gray-400 bg-white/75 backdrop-blur-lg transition-all py-4 md:mx-6 lg:mx-20">
       <div className="w-screen max-w-screen-2xl justify-between flex items-center">
         <Link
-          className="flex items-center justify-center gap-2 font-bold text-lg"
-          href="/"
+          className="flex items-center justify-center gap-2 font-bold text-lg hover:text-gray-700"
+          href="/products"
         >
           <Image
             width={30}
