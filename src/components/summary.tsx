@@ -1,14 +1,25 @@
 "use client";
 
 import { toast } from "sonner";
+import { useTransition } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { DISCOUNT, GST, HANDLING_CHARGE, SHIPPING_COST } from "@/constants";
 import { formatPriceToINR } from "@/lib/utils";
+import { clearCart } from "@/actions/cart";
 
 export function Summary({ itemsTotal }: { itemsTotal: number }) {
   const total = itemsTotal + SHIPPING_COST + HANDLING_CHARGE + GST - DISCOUNT;
+
+  const [isPending, startTransition] = useTransition();
+
+  const handleCheckout = () => {
+    startTransition(async () => {
+      await clearCart();
+      toast("Order Placed.");
+    });
+  };
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -44,8 +55,12 @@ export function Summary({ itemsTotal }: { itemsTotal: number }) {
           <p>Order total:</p>
           <p>{formatPriceToINR(total)}</p>
         </div>
-        <Button onClick={() => toast("Order Placed!")} className="w-4/6 m-2">
-          Checkout
+        <Button
+          onClick={handleCheckout}
+          disabled={isPending}
+          className="w-4/6 m-2"
+        >
+          {isPending ? "Checking Out..." : "Checkout"}
         </Button>
       </div>
     </div>

@@ -3,6 +3,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { and, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 import { cartItem } from "@/db/schema";
 import { db } from "@/db/drizzle";
@@ -93,4 +94,16 @@ export async function deleteProductFromCart(productId: number) {
     .where(and(eq(cartItem.userId, userId), eq(cartItem.productId, productId)));
 
   revalidatePath("/(protected)", "layout");
+}
+
+export async function clearCart() {
+  const { userId } = auth();
+  if (!userId) {
+    throw new Error("Unauthorized!");
+  }
+
+  await db.delete(cartItem).where(eq(cartItem.userId, userId));
+
+  revalidatePath("/(protected)", "layout");
+  redirect("/order-placed");
 }

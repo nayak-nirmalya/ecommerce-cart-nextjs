@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import { Minus, Plus, LoaderIcon, Trash2 } from "lucide-react";
 import { useTransition } from "react";
