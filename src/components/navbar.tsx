@@ -9,7 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export function Navbar() {
   return (
-    <nav className="sticky top-0 z-50 px-2 flex items-center justify-center border-b-2 border-dotted border-gray-400 bg-white py-4 md:mx-6 lg:mx-20">
+    <nav className="sticky top-0 z-50 px-2 flex items-center justify-center border-b-2 border-dotted border-gray-400 bg-white/75 backdrop-blur-lg transition-all py-4 md:mx-6 lg:mx-20">
       <div className="w-screen max-w-screen-2xl justify-between flex items-center">
         <Link
           className="flex items-center justify-center gap-2 font-bold text-lg"
