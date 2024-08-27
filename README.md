@@ -1,4 +1,4 @@
-# ProfileShop - A Modern FullStack E-Commerce Shop
+# A Modern FullStack E-Commerce Shop with Cart, Checkout, Authentication, and More!
 
 Built with the Next.js 14 App Router, PostgreSQL, TypeScript, TailwindCSS, Clerk, shadcn-ui & DrizzleORM.
 
