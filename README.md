@@ -28,7 +28,7 @@ Built with the Next.js 14 App Router, PostgreSQL, TypeScript, TailwindCSS, Clerk
 ### Cloning the Repository
 
 ```shell
-git clone https://github.com/nayak-nirmalya/profile-fyi-task.git
+git clone https://github.com/nayak-nirmalya/ecommerce-cart-nextjs.git
 ```
 
 ### Install Packages
