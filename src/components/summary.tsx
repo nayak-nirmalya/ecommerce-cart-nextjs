@@ -2,6 +2,7 @@
 
 import { toast } from "sonner";
 import { useTransition } from "react";
+import { LoaderIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -61,6 +62,7 @@ export function Summary({ itemsTotal }: { itemsTotal: number }) {
           className="w-4/6 m-2"
         >
           {isPending ? "Checking Out..." : "Checkout"}
+          {isPending && <LoaderIcon className="ml-2 h-4 w-4 animate-spin" />}
         </Button>
       </div>
     </div>
