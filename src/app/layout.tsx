@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`
   ),
   title: {
-    template: "%s | Profile Shop",
-    default: "Profile Shop",
+    template: "%s | Profile E-Commerce",
+    default: "Profile E-Commerce",
   },
   description:
     "Profile.fyi is the next-gen professional social network aimed at enabling people to build their ultimate career profile by showcasing things that matter.",
