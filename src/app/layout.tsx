@@ -27,8 +27,7 @@ export const metadata: Metadata = {
     title: "Profile Shop",
     countryName: "India",
     siteName: "Profile Shop",
-    description:
-      "Profile.fyi is the next-gen professional social network aimed at enabling people to build their ultimate career profile by showcasing things that matter.",
+    description: "Profile E-Commerce the Next-Gen Shopping Experience.",
   },
   twitter: {
     card: "summary_large_image",
